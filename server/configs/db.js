@@ -1,0 +1,17 @@
+import mongoose from "mongoose";
+
+const connectDB = async () => {
+  try {
+    mongoose.connection.on('connected', () => {
+      console.log('Mongoose connected to DB Cluster');
+    });
+    await mongoose.connect(`${process.env.MONGODB_URL}/allpoints`); 
+    
+    console.log("MongoDB connected");
+  } catch (error) {
+    console.error("MongoDB connection failed:", error);
+    process.exit(1);
+  }
+};
+
+export default connectDB;
