@@ -5,7 +5,7 @@ const connectDB = async () => {
     mongoose.connection.on('connected', () => {
       console.log('Mongoose connected to DB Cluster');
     });
-    await mongoose.connect(`${process.env.MONGODB_URL}/allpoints`); 
+    await mongoose.connect(`${process.env.MONGODB_URL}/allpoints-app`); 
     
     console.log("MongoDB connected");
   } catch (error) {
