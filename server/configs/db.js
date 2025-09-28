@@ -2,15 +2,12 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    mongoose.connection.on('connected', () => {
-      console.log('Mongoose connected to DB Cluster');
+    mongoose.connection.on("connected", () => {
+      console.log("MongoDB connected");
     });
-    await mongoose.connect(`${process.env.MONGODB_URL}/allpoints-app`); 
-    
-    console.log("MongoDB connected");
+    await mongoose.connect(`${process.env.MONGODB_URL}/pingup`);
   } catch (error) {
-    console.error("MongoDB connection failed:", error);
-    process.exit(1);
+    console.error("MongoDB connection failed:", error.message);
   }
 };
 
